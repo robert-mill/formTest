@@ -6,7 +6,7 @@ class Boot extends DB {
     }
     function getThis($sql){
 
-        return $this->select("SELECT gender, age from formdata");
+        return $this->select( $sql);
     }
     function post($data){
         return $this->insert($data);
