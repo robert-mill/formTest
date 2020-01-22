@@ -39,13 +39,14 @@ class DB {
     }
     function insert($data=null){
         $result=false;
-        $sql="INSERT INTO formdata ( firstName, lastName, email, gender, age) VALUES (:firstName, :lastName, :email, :gender, :age)";
+        $sql="INSERT INTO formdata ( firstName, lastName, email, gender, age, height) VALUES (:firstName, :lastName, :email, :gender, :age, :height)";
         $data = [
             ':firstName' => $data['inputFirstName'],
             ':lastName' => $data['inputLastName'],
             ':email' => $data['inputEmail'],
             ':gender' => $data['gender'],
-            ':age' => $data['selectage']
+            ':age' => $data['selectage'],
+            ':height' => $data['selectheight']
             ];
 
 
@@ -57,7 +58,7 @@ class DB {
             $this->stmt->bindValue(':email', 'inputEmail');
             $this->stmt->bindValue(':gender', 'gender');
             $this->stmt->bindValue(':age', 'selectage');
-
+            $this->stmt->bindValue(':height', 'selectheight');
            $this->stmt->execute($data);
            return 'Data sent';
         }
